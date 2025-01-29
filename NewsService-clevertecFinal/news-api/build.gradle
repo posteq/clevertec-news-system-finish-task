@@ -1,0 +1,74 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.1'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.asciidoctor.jvm.convert' version '2.4.0'
+}
+
+group = 'by.clevertec'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+dependencies {
+    implementation project(':news-core')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.liquibase:liquibase-core'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.2.0'
+
+    implementation "org.hibernate.validator:hibernate-validator:8.0.1.Final"
+
+    //My oap
+    implementation 'by.clevertec:exception-handler-starter:1.0.0'
+    implementation 'by.clevertec:logger-starter:1.0.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.0'
+    testImplementation 'org.testcontainers:postgresql:1.19.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner:4.2.0'
+
+    //Doc
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+test {
+    useJUnitPlatform()
+    outputs.dir snippetsDir
+}
+
+
+
+asciidoctor {
+    options doctype: 'book',backend: 'html'
+    inputs.dir snippetsDir
+    dependsOn test
+    attributes = [
+            'snippets':snippetsDir,
+            encoding : 'utf-8'
+    ]
+}
+

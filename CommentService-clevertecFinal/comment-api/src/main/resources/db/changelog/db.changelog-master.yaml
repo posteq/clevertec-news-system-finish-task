@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table
+      author: posteq
+  - include:
+      file: db/changelog/changeset/init-table-comment.sql
+  - changeSet:
+      id: create-index
+      author: posteq
+  - include:
+      file: db/changelog/changeset/create-index-comment.sql
+  - changeSet:
+      id: insert-data
+      author: posteq
+  - include:
+      file: db/changelog/changeset/insert-data-comment.sql

@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-1
+      author: posteq
+  - include:
+      file: db/changelog/changeset/init-table-news.sql
+  - changeSet:
+      id: create-index-1
+      author: posteq
+  - include:
+      file: db/changelog/changeset/create-index-news.sql
+  - changeSet:
+      id: insert-data-1
+      author: posteq
+  - include:
+      file: db/changelog/changeset/insert-data-news.sql

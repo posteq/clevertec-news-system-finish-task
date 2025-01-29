@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/clevertec
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  liquibase:
+    enabled: true
+server:
+  servlet:
+    context-path: /clevertec
+  port: 8082
+application:
+  service:
+    name: comments-service
+    url: http://localhost:8085/comment
+
+cache:
+  algorithm: LRU
+  capacity: 2
+aop:
+  logging:
+    enabled: true
+  exception:
+    handler:
+      enabled: true
+logging:
+  file:
+    path: ../logs/news-service.log
