@@ -1,0 +1,1 @@
+CREATE INDEX idx_comment ON comments USING gin(to_tsvector('russian', text ));

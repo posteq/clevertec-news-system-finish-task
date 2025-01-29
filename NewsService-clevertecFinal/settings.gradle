@@ -1,0 +1,3 @@
+rootProject.name = 'NewsService-clevertecFinal'
+include 'news-api'
+include 'news-core'

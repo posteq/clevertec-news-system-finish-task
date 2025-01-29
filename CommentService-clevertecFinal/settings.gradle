@@ -1,0 +1,4 @@
+rootProject.name = 'CommentService-clevertecFinal'
+include 'comment-api'
+include 'comment-core'
+

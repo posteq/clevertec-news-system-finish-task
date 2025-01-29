@@ -1,0 +1,1 @@
+CREATE INDEX idx_news_fulltext ON news USING gin(to_tsvector('russian', title || ' ' || text));

@@ -1,0 +1,57 @@
+= REST API News
+
+This is documentation of News service
+
+== API
+=== Создание новости
+
+==== `Curl example`
+include::{snippets}/create-news/curl-request.adoc[]
+==== `Request fields`
+include::{snippets}/create-news/request-fields.adoc[]
+
+==== `Response body`
+include::{snippets}/create-news/http-response.adoc[]
+==== `Response fields`
+include::{snippets}/create-news/response-fields.adoc[]
+
+=== Получение новости по id
+==== `Curl example`
+include::{snippets}/get-news-by-id/curl-request.adoc[]
+==== `Request`
+include::{snippets}/get-news-by-id/path-parameters.adoc[]
+==== `Response body`
+include::{snippets}/create-news/http-response.adoc[]
+==== `Response fields`
+include::{snippets}/create-news/response-fields.adoc[]
+
+=== Получение всех новости постранично
+==== `Curl example`
+include::{snippets}/get-news-by-page/curl-request.adoc[]
+
+==== `Response body`
+include::{snippets}/get-news-by-page/http-response.adoc[]
+==== `Response fields`
+include::{snippets}/get-news-by-page/response-fields.adoc[]
+
+=== Поиск новостей по названию или содержанию
+==== `Curl example`
+include::{snippets}/search-news/curl-request.adoc[]
+==== `Request fields`
+include::{snippets}/search-news/query-parameters.adoc[]
+
+==== `Response body`
+include::{snippets}/search-news/http-response.adoc[]
+==== `Response fields`
+include::{snippets}/search-news/response-fields.adoc[]
+
+=== Обновление новости
+==== `Curl example`
+include::{snippets}/update-news/curl-request.adoc[]
+==== `Request fields`
+include::{snippets}/update-news/request-fields.adoc[]
+
+==== `Response body`
+include::{snippets}/update-news/http-response.adoc[]
+==== `Response fields`
+include::{snippets}/update-news/response-fields.adoc[]
